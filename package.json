@@ -1,0 +1,32 @@
+{
+  "name": "personal_poi",
+  "version": "1.0.0",
+  "description": "Bookmarks of my personal spots",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/somethingsaid/personal-poi.git"
+  },
+  "keywords": [
+    "MEAN",
+    "poi",
+    "maps"
+  ],
+  "author": "BK",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/somethingsaid/personal-poi/issues"
+  },
+  "homepage": "https://github.com/somethingsaid/personal-poi#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jsonwebtoken": "^7.1.7",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.5.7",
+    "morgan": "^1.7.0"
+  }
+}
