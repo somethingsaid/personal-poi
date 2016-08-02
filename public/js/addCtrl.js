@@ -1,6 +1,6 @@
 // Creates the addCtrl Module and Controller. Note that it depends on the 'geolocation' module and service.
 var addCtrl = angular.module('addCtrl', ['geolocation', 'gmapservice']);
-addCtrl.controller('addCtrl', ['$scope', '$http', 'geolocation', 'gmapservice', function($scope, $http, geolocation, gmapservice){
+addCtrl.controller('addCtrl', ['$scope', '$rootScope', '$http', 'geolocation', 'gmapservice', function($scope, $rootScope, $http, geolocation, gmapservice){
 
     // Initializes Variables
     // ----------------------------------------------------------------------------
@@ -11,6 +11,15 @@ addCtrl.controller('addCtrl', ['$scope', '$http', 'geolocation', 'gmapservice', 
 
     // Functions
     // ----------------------------------------------------------------------------
+    // Get coordinates based on mouse click:
+    $rootScope.$on("clicked", function(){
+
+        // Use gmapservice click functions to update form
+        $scope.$apply(function(){
+            $scope.formData.latitude = parseFloat(gmapservice.clickLat).toFixed(3);
+            $scope.formData.longitude = parseFloat(gmapservice.clickLong).toFixed(3);
+        });
+    });
     // Creates a new point of interest based on the form fields
     $scope.createPoint = function() {
 
