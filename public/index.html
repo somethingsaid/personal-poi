@@ -17,8 +17,11 @@
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/angular-route/angular-route.js"></script>
     <script src="../bower_components/angularjs-geolocation/dist/angularjs-geolocation.min.js"></script>
+    <!-- My own angular scripts -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/addCtrl.js"></script>
 </head>
-<body>
+<body ng-controller="addCtrl">
 <div class="container">
     <div class="header">
         <h3 class="text-muted">Billy's Points of Interest</h3>
@@ -47,14 +50,18 @@
                         </div>
                         <div class="form-group">
                             <label for="keywords">Keywords <span class="badge">Required Field</span></label></label>
-                            <input type="text" class="form-control" id="keywords" placeholder="school, fun, childhood, 1994" ng-model="formData.keywords" required>
+                            <input type="text" class="form-control" id="keywords" placeholder="schoolboy, fun_in_the_sun, childhood, 1994, running_barefoot" ng-model="formData.keywords" required>
                         </div>
                         <div class="form-group">
-                            <label for="location-string">Enter address or place pin on map <span class="badge">Optional Field</span></label></label>
-                            <input type="text" class="form-control" id="location-string" placeholder="Singapore" ng-model="formData.locationString">
+                            <label for="latitude">Latitude <span class="badge">Required Field</span></label>
+                            <input type="text" class="form-control" id="latitude" placeholder="1.39" ng-model="formData.latitude" required>
                         </div>
-                        <!-- Submit button. Note that it's tied to createUser() function from addCtrl. Also note ng-disabled logic which prevents early submits.  -->
-                        <button type="submit" class="btn btn-danger btn-block" ng-disabled="addForm.$invalid">Submit</button>
+                        <div class="form-group">
+                            <label for="longitude">Longitude <span class="badge">Required Field</span></label>
+                            <input type="text" class="form-control" id="longitude" placeholder="103.84" ng-model="formData.longitude" required>
+                        </div>
+                        <!-- Submit button, use ng-disabled to prevent incomplete form submission -->
+                        <button type="submit" class="btn btn-primary btn-block" ng-click="createPoint()" ng-disabled="addForm.$invalid">Submit</button>
                     </form>
                 </div>
             </div>
