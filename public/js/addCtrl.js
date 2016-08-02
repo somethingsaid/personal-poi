@@ -5,14 +5,15 @@ addCtrl.controller('addCtrl', ['$scope', '$rootScope', '$http', 'geolocation', '
     // Initializes Variables
     // ----------------------------------------------------------------------------
     $scope.formData = {};
+    $scope.useAddress = false;
     var coords = {};
     var lat = 0;
     var long = 0;
 
     // Functions
     // ----------------------------------------------------------------------------
-    // Get coordinates based on mouse click:
-    $rootScope.$on("clicked", function(){
+    // Get coordinates based on mouse click on $broadcast('mapclick')
+    $rootScope.$on("mapclick", function(){
 
         // Use gmapservice click functions to update form
         $scope.$apply(function(){

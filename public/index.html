@@ -53,13 +53,15 @@
                             <label for="keywords">Keywords <span class="badge">Required Field</span></label></label>
                             <input type="text" class="form-control" id="keywords" placeholder="schoolboy, fun_in_the_sun, childhood, 1994, running_barefoot" ng-model="formData.keywords" required>
                         </div>
-                        <div class="form-group">
-                            <label for="latitude">Latitude <span class="badge">Required Field</span></label>
-                            <input type="text" class="form-control" id="latitude" placeholder="1.39" ng-model="formData.latitude" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="longitude">Longitude <span class="badge">Required Field</span></label>
-                            <input type="text" class="form-control" id="longitude" placeholder="103.84" ng-model="formData.longitude" required>
+                        <div class="coordinates" ng-if="!useAddress">
+                            <div class="form-group">
+                                <label for="latitude">Latitude <span class="badge">Required Field</span></label>
+                                <input type="text" class="form-control" id="latitude" placeholder="1.39" ng-model="formData.latitude" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="longitude">Longitude <span class="badge">Required Field</span></label>
+                                <input type="text" class="form-control" id="longitude" placeholder="103.84" ng-model="formData.longitude" required>
+                            </div>
                         </div>
                         <!-- Submit button, use ng-disabled to prevent incomplete form submission -->
                         <button type="submit" class="btn btn-primary btn-block" ng-click="createPoint()" ng-disabled="addForm.$invalid">Submit</button>
