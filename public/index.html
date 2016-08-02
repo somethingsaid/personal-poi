@@ -1,0 +1,71 @@
+<!doctype html>
+<html ng-app="poiApp">
+<head>
+    <meta charset="utf-8">
+    <title>Billy's Points of Interest</title>
+    <meta name="description" content="Documenting places of interest with Google Maps and Mongo">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="style.css"/>
+    <!-- Holder JS for image placeholders-->
+    <script src="../app/bower_components/holderjs/holder.js"></script>
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbLnfemMfCf7sJ83aiYAzb8-HR7nJAoOE"></script>
+    <!-- JS Source -->
+    <script src="../app/bower_components/jquery/jquery.js"></script>
+    <script src="../app/bower_components/angular/angular.js"></script>
+    <script src="../app/bower_components/angular-route/angular-route.js"></script>
+    <script src="../app/bower_components/angularjs-geolocation/dist/angularjs-geolocation.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h3 class="text-muted">Billy's Points of Interest</h3>
+    </div>
+    <!-- Map and Side Panel -->
+    <div class="row content">
+        <!-- Google Map -->
+        <div class="col-md-7">
+            <div id="map"><img src="holder.js/645x645"></div>
+        </div>
+        <!-- Side Panel -->
+        <div class="col-md-5">
+            <div class="panel panel-default">
+                <!-- Panel Title -->
+                <div class="panel-heading">
+                    <h2 class="panel-title text-center">Add new location<span class="glyphicon glyphicon-map-marker"></span></h2>
+                </div>
+                <!-- Panel Body -->
+                <div class="panel-body">
+                    <!-- Creates Form (novalidate disables HTML validation, Angular will control) -->
+                    <form name ="addForm" novalidate>
+                        <!-- Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope -->
+                        <div class="form-group">
+                            <label for="nickname">Nickname <span class="badge">Required Field</span></label>
+                            <input type="text" class="form-control" id="nickname" placeholder="My elementary school" ng-model="formData.nickname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tags">Tags <span class="badge">Required Field</span></label></label>
+                            <input type="text" class="form-control" id="tags" placeholder="school, fun, childhood" ng-model="formData.tags" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="location-string">Enter address or place pin on map <span class="badge">Optional Field</span></label></label>
+                            <input type="text" class="form-control" id="location-string" placeholder="Singapore" ng-model="formData.locationString">
+                        </div>
+                        <!-- Submit button. Note that it's tied to createUser() function from addCtrl. Also note ng-disabled logic which prevents early submits.  -->
+                        <button type="submit" class="btn btn-danger btn-block" ng-disabled="addForm.$invalid">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <!-- Footer -->
+    <div class="footer">
+        <p class="text-center"><span class="glyphicon glyphicon-check"></span> Created by Billy Kwong -
+            <a href="https://github.com/somethingsaid">Github Account</a></p>
+    </div>
+</div>
+</body>
+</html>
