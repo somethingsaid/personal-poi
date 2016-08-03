@@ -4,9 +4,9 @@
 }
 
 body {
-	background-color: grey;
+	background-color: #626D70;
 }
 
-.title {
-	color: white;
+.title, .footer-links {
+	color: #59B5D4;
 }
