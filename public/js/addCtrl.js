@@ -45,6 +45,7 @@ addCtrl.controller('addCtrl', ['$scope', '$rootScope', '$http', 'geolocation', '
             })
             .then(function(response) {
                 var result = response.data.results;
+                console.log(result[0]);
                 $scope.formData.longitude = result[0].geometry.location.lng;
                 $scope.formData.latitude = result[0].geometry.location.lat;
             });
@@ -66,7 +67,7 @@ addCtrl.controller('addCtrl', ['$scope', '$rootScope', '$http', 'geolocation', '
             .success(function (data) {
 
                 // Once complete, clear the form
-                $scope.formData.username = "";
+                $scope.formData.nickname = "";
                 $scope.formData.keywords = "";
                 $scope.formData.longitude = "";
                 $scope.formData.latitude = "";
