@@ -2,3 +2,11 @@
 	width: 645px;
 	height: 645px;
 }
+
+body {
+	background-color: grey;
+}
+
+.title {
+	color: white;
+}

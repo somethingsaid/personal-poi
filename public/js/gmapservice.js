@@ -15,7 +15,7 @@ angular.module('gmapservice', [])
 
         // Handling Clicks and location selection
         googleMapService.clickLat  = 0;
-        googleMapService.clickLong = 0;
+        googleMapService.clickLng = 0;
 
         // Functions
         // --------------------------------------------------------------

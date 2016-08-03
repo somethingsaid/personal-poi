@@ -18,7 +18,7 @@ addCtrl.controller('addCtrl', ['$scope', '$rootScope', '$http', 'geolocation', '
         // Use gmapservice click functions to update form
         $scope.$apply(function(){
             $scope.formData.latitude = parseFloat(gmapservice.clickLat).toFixed(3);
-            $scope.formData.longitude = parseFloat(gmapservice.clickLong).toFixed(3);
+            $scope.formData.longitude = parseFloat(gmapservice.clickLng).toFixed(3);
         });
     });
 
