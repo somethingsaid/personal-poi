@@ -55,6 +55,8 @@ angular.module('gmapservice', [])
                 var  contentString =
                     '<p><b>Nickname</b>: ' + point.nickname +
                     '<br><b>Keywords</b>: ' + point.keywords +
+                    '<br><b>Latitude:</b> ' + point.location[1] +
+                    '<br><b>Longitude:</b> ' + point.location[0] +
                     '</p>';
 
                 // Converts each of the JSON records into Google Maps Location format (Note [Lat, Lng] format).
@@ -84,7 +86,7 @@ angular.module('gmapservice', [])
 
                 // Create a new map and place in the index.html page
                 var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 1, // Valid values are 1-8, set at 1 for world level
+                    zoom: 2, // Valid values are 1-8, set at 1 for world level, 8 for street
                     center: myLatLng
                 });
             }
