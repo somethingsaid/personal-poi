@@ -53,7 +53,18 @@
                             <label for="keywords">Keywords <span class="badge">Required Field</span></label></label>
                             <input type="text" class="form-control" id="keywords" placeholder="schoolboy, fun_in_the_sun, childhood, 1994, running_barefoot" ng-model="formData.keywords" required>
                         </div>
-                        <div class="coordinates" ng-if="!useAddress">
+                        <button type="button" class="btn btn-primary btn-block" ng-click="useAddress=!useAddress">Toggle Address Input</button>
+                        <br/>
+                        <div name="addressForm" ng-if="useAddress">
+                            <div class="form-group">
+                                <label for="address-string">Address String</label>
+                                <input type="text" class="form-control" id="address-string" placeholder="e.g. Giza Pyramid or New York City, New York" ng-model="addressString">
+                                <br/>
+                                <button type="button" class="btn btn-primary" ng-click="addressToCoordinates(addressString)">Retrieve Coordinates</button>
+                                <button type="button" class="btn btn-warning" ng-click="dummyFunc()">Dummy Function</button>
+                            </div>
+                        </div>
+                        <div class="coordinates">
                             <div class="form-group">
                                 <label for="latitude">Latitude <span class="badge">Required Field</span></label>
                                 <input type="text" class="form-control" id="latitude" placeholder="1.39" ng-model="formData.latitude" required>
@@ -64,7 +75,7 @@
                             </div>
                         </div>
                         <!-- Submit button, use ng-disabled to prevent incomplete form submission -->
-                        <button type="submit" class="btn btn-primary btn-block" ng-click="createPoint()" ng-disabled="addForm.$invalid">Submit</button>
+                        <button type="submit" class="btn btn-success btn-block" ng-click="createPoint()" ng-disabled="addForm.$invalid">Submit</button>
                     </form>
                 </div>
             </div>

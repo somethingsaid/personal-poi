@@ -21,6 +21,36 @@ addCtrl.controller('addCtrl', ['$scope', '$rootScope', '$http', 'geolocation', '
             $scope.formData.longitude = parseFloat(gmapservice.clickLong).toFixed(3);
         });
     });
+
+    // Convert address string to coordinates
+    $scope.dummyFunc = function() {
+        console.log("Dummy");
+    };
+
+    $scope.addressToCoordinates = function(addressString) {
+        console.log('Trying to retrieve coordinates');
+        if (addressString === undefined || addressString === null)  {
+            console.log('Nothing to query');
+        }
+        else {
+            var parameters = {
+            key: 'AIzaSyBbLnfemMfCf7sJ83aiYAzb8-HR7nJAoOE',
+            address: addressString
+            }
+
+            $http({
+                url: "https://maps.googleapis.com/maps/api/geocode/json",
+                method: 'GET',
+                params: parameters
+            })
+            .then(function(response) {
+                var result = response.data.results;
+                $scope.formData.longitude = result[0].geometry.location.lng;
+                $scope.formData.latitude = result[0].geometry.location.lat;
+            });
+        }
+    };
+
     // Creates a new point of interest based on the form fields
     $scope.createPoint = function() {
 
