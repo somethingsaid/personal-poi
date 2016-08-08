@@ -143,6 +143,11 @@ angular.module('gmapservice', [])
                 googleMapService.clickLng = marker.getPosition().lng();
                 $rootScope.$broadcast('mapclick');
             });
+
+            // Watch form coordinates change and move marker accordingly (before submit)
+            // $scope.watch('formData.latitude', function() {
+                
+            // })
         };
 
     // Refresh the page upon window load. Use the initial latitude and longitude
